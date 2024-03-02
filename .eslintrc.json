@@ -6,7 +6,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "prettier"
+        "prettier",
+        "plugin:react/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -16,5 +17,10 @@
         "react"
     ],
     "rules": {
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-vars": "error",
+        "no-unused-vars": "off",
+        "react/prop-types": "off"
     }
 }
