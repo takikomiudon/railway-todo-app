@@ -1,3 +1,5 @@
+@use "../App.scss";
+
 .taskList {
   margin: 50px auto;
   list-style: none;
@@ -25,13 +27,13 @@
   padding: 0 25px;
   text-overflow: normal;
   margin-right: 5px;
-  border: solid 1px #242F9B;
+  border: solid 1px App.$primary-color;
   justify-content: center;
   align-items: center;
 }
 
 .active {
-  background-color: #242F9B;
+  background-color: App.$primary-color;
   color: #ffffff;
 }
 
@@ -63,7 +65,7 @@
 }
 
 .error-message {
-  color: #ff3333;
+  color: App.$danger-color;
 }
 
 .display-select-wrapper {
