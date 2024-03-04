@@ -150,6 +150,29 @@ const Tasks = (props) => {
     );
   }
 
+  const today = new Date();
+  const leftDay = (limit) => {
+    const limitDate = new Date(limit);
+    const leftDay = Math.floor(
+      (limitDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000)
+    );
+    return leftDay;
+  }
+  const leftHour = (limit) => {
+    const limitDate = new Date(limit);
+    const leftHour = Math.floor(
+      (limitDate.getTime() - today.getTime()) / (60 * 60 * 1000)
+    );
+    return leftHour - (leftDay(limit) * 24);
+  }
+  const leftMinute = (limit) => {
+    const limitDate = new Date(limit);
+    const leftMinute = Math.floor(
+      (limitDate.getTime() - today.getTime()) / (60 * 1000)
+    );
+    return leftMinute - (leftDay(limit) * 24 * 60) - (leftHour(limit) * 60);
+  }
+
   return (
     <ul>
       {tasks
@@ -162,7 +185,7 @@ const Tasks = (props) => {
               to={`/lists/${selectListId}/tasks/${task.id}`}
               className="task-item-link"
             >
-              {task.title}
+              {task.title} {task.limit} あと{leftDay(task.limit)}日 {leftHour(task.limit)}時間 {leftMinute(task.limit)}分
               <br />
               {task.done ? "完了" : "未完了"}
             </Link>
