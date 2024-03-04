@@ -90,6 +90,8 @@ export const Home = () => {
                   key={key}
                   className={`list-tab-item ${isActive ? "active" : ""}`}
                   onClick={() => handleSelectList(list.id)}
+                  onKeyDown={() => handleSelectList(list.id)}
+                  tabIndex={0}
                 >
                   {list.title}
                 </li>
