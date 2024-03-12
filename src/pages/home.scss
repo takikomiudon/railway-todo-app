@@ -3,7 +3,7 @@
 .taskList {
   margin: 50px auto;
   list-style: none;
-  width: 1000px;
+  width: 100%;
 }
 
 .list-header {
@@ -19,6 +19,9 @@
   list-style: none;
   display: flex;
   overflow-x: auto;
+  @media screen and (max-width: 320px) {
+    flex-direction: column;
+  }
 }
 
 .list-tab-item {
